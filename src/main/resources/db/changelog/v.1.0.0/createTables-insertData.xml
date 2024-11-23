@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="create-tables" author="developer">
+        <createTable tableName="mode">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="power" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="history">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="power" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="usage_data" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="insert-initial-data-mode" author="developer">
+        <insert tableName="mode">
+            <column name="name" value="Быстрый разогрев"/>
+            <column name="power" value="600"/>
+            <column name="duration" value="1"/>
+        </insert>
+        <insert tableName="mode">
+            <column name="name" value="Размораживание"/>
+            <column name="power" value="300"/>
+            <column name="duration" value="5"/>
+        </insert>
+        <insert tableName="mode">
+            <column name="name" value="Нормальный разогрев "/>
+            <column name="power" value="500"/>
+            <column name="duration" value="3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
